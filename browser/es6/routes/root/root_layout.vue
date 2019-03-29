@@ -1,6 +1,7 @@
 <template>
 <div id="main-content">
     <appNavbar/>
+    <!-- vanilla bootstrap -->
     <div class="container-fluid content-container mt-2">
         <div class="row">
             <div class="col">
