@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm-4">
         <form>
-          <h6>Sphere Origin</h6>
+          <h6>Sphere OriginZ</h6>
           <div class="input-group mb-1">
             <div class="input-group-prepend">
               <span class="input-group-text">X</span>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+// describing information about the component
+
 export default {
   data() {
     return {
@@ -81,8 +83,12 @@ export default {
   },
   created() {
     const component = this;
+    // going to express router
     $.get("/api/retrieve-something").then((data) => {
       console.log(data);
+    });
+    $.get("/api/adding-things").then((data) => {
+        console.log(data);
     });
   }
 }

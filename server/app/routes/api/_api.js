@@ -14,6 +14,14 @@ router.get("/retrieve-something", (req, res) => {
 	});
 });
 
+// creating new get call
+router.get("/adding-things", (req, res) => {
+	let sphere = new rhino3dm.Sphere([1, 2, 3], 12);
+	return res.json({
+		result: 4 + 9
+	}) 
+});
+
 router.post("/save-sphere", (req, res) => {
 	let sphere = new rhino3dm.Sphere(req.body.origin, req.body.radius);
 	let sphereModel = new Sphere();
