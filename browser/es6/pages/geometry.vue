@@ -19,6 +19,8 @@ import {
   initThree,
   THREE_Controller
 } from "../libraries/three/create";
+
+// these are the ui components
 import geometryUploader from "../components/geometryUploader.vue";
 import floorEntry from "../components/floorEntry.vue";
 import areaData from "../components/areaData.vue";

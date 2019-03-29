@@ -8,7 +8,7 @@
       </div>
     </div>
   </div>
-  <appFooter />
+  <!-- <appFooter /> -->
 </div>
 </template>
 

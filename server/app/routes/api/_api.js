@@ -9,6 +9,8 @@ module.exports = router;
 /*
 Multer Configuration
  */
+
+// this is saving to a folder before upload
 const multer = require("multer");
 let multerStorage = multer.diskStorage({
 	destination: function(req, file, cb) {
