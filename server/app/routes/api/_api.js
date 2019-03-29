@@ -16,7 +16,6 @@ router.get("/retrieve-something", (req, res) => {
 
 // creating new get call
 router.get("/adding-things", (req, res) => {
-	let sphere = new rhino3dm.Sphere([1, 2, 3], 12);
 	return res.json({
 		result: 4 + 9
 	}) 
@@ -33,5 +32,19 @@ router.post("/save-sphere", (req, res) => {
 	sphereModel.save((err, saved)=>{
 		console.log("saved!");
 		return res.json(sphereModel.volume);
+	})
+})
+
+router.post("/save-circle", (req, res) => {
+	let circle = new rhino3dm.Circle(req.body.diameter/2);
+	let circleModel = new Circle();
+	circleModel.diameter = req.body.diameter;
+	circleModel.perimeter = Math.PI * req.body.diameter;
+	// sphereModel.save();
+	// return res.json(sphereModel.volume);
+
+	circleModel.save((err, saved)=>{
+		console.log("saved!");
+		return res.json(circleModel.perimeter);
 	})
 })

@@ -31,9 +31,19 @@
             </div>
             <input class="form-control" type="text" v-model="radius" />
           </div>
+            <h6 class="mt-2">Circle Diameter</h6>
+            <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Diameter</span>
+                </div>
+                <input class="form-control" type="text" v-model="diameter" />
+            </div>
         </form>
 
         <button class="btn btn-primary mt-2" v-on:click="saveSphere">Save Sphere Data</button>
+
+        <button class="btn btn-primary mt-2" v-on:click="saveCircle">Save Circle Data</button>
+
         <p v-if="saved" class="text-success mt-2">Saved!</p>
       </div>
       <div class="col-sm-8">
@@ -54,7 +64,8 @@ export default {
       originX: null,
       originY: null,
       originZ: null,
-      radius: null
+      radius: null,
+      diameter: null
     }
   },
   methods: {
@@ -81,6 +92,27 @@ export default {
       });
     }
   },
+    saveCircle: function() {
+        const component = this;
+        const circle = {
+        diameter: +component.diameter
+        };
+        $.ajax({
+        url: '/api/save-circle',
+        data: JSON.stringify(circle),
+        cache: false,
+        contentType: "application/json",
+        processData: false,
+        method: 'POST',
+        success: (response) => {
+            console.log(response);
+            component.saved = true;
+            setTimeout(function() {
+            component.saved = false;
+            }, 5000);
+        }
+        });
+    },
   created() {
     const component = this;
     // going to express router

@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
+// schema
 const sphereSchema = new mongoose.Schema({
-  sphere: Object,
+  origin: Object,
   volume: Number
 });
 
